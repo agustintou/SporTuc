@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90DF2F40-B2F1-4CEF-9D99-BD33B6CA9EDC}</ProjectGuid>
+    <ProjectGuid>{50F9E099-46B2-4098-9126-6C9D66257EB4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST.Domain</RootNamespace>
-    <AssemblyName>ST.Domain</AssemblyName>
+    <RootNamespace>ST.Infrastructure.Repository</RootNamespace>
+    <AssemblyName>ST.Infrastructure.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,14 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,20 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Person.cs" />
-    <Compile Include="MetaData\IPerson.cs" />
+    <Compile Include="Person\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ST.Domain.Base\ST.Domain.Base.csproj">
-      <Project>{48AF64B1-255D-4665-B76C-48E62B189605}</Project>
+      <Project>{48af64b1-255d-4665-b76c-48e62b189605}</Project>
       <Name>ST.Domain.Base</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\ST.Domain.Repository\ST.Domain.Repository.csproj">
+      <Project>{3ABAFD31-8CBE-4A14-A9F3-48804F892208}</Project>
+      <Name>ST.Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Domain\ST.Domain.csproj">
+      <Project>{90df2f40-b2f1-4cef-9d99-bd33b6ca9edc}</Project>
+      <Name>ST.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Repository.Base\ST.Repository.Base.csproj">
+      <Project>{896D8AAA-8260-4CB5-A10A-DB81CFF3C751}</Project>
+      <Name>ST.Repository.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Repository\ST.Repository.csproj">
+      <Project>{0F0ED43A-3A35-4A63-BFB2-37ABB6C456A2}</Project>
+      <Name>ST.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
