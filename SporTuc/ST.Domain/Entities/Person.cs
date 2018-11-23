@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ST.Domain.Entities
 {
-    [Table("Person")]
+    [Table("Persons")]
     [MetadataType(typeof(IPerson))]
     public class Person : EntityBase
     {
