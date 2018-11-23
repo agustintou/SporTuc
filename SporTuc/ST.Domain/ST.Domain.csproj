@@ -48,10 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Complex.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Sport.cs" />
     <Compile Include="Entities\Team.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="MetaData\IComplex.cs" />
     <Compile Include="MetaData\IPerson.cs" />
     <Compile Include="MetaData\ISport.cs" />
     <Compile Include="MetaData\ITeam.cs" />
