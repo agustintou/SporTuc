@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Complex\ComplexRepository.cs" />
+    <Compile Include="Field\FieldRepository.cs" />
     <Compile Include="Match\MatchRepository.cs" />
     <Compile Include="Person\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

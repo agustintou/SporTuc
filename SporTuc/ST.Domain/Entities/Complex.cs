@@ -1,5 +1,6 @@
 ﻿using ST.Domain.Base;
 using ST.Domain.MetaData;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,9 @@ namespace ST.Domain.Entities
         public string Logo { get; set; }
 
         public string Description { get; set; }
+
+        //Navigation Properties
+        public ICollection<Field> Fields { get; set; }
 
     }
 }
