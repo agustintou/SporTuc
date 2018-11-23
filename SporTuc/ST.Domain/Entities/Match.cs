@@ -10,6 +10,8 @@ namespace ST.Domain.Entities
     [MetadataType(typeof(IMatch))]
     public class Match : EntityBase
     {
+        public int NumMatch { get; set; }
+
         public DateTime Date { get; set; }
 
         //Navegation Properties
@@ -18,6 +20,8 @@ namespace ST.Domain.Entities
         public virtual Team Team { get; set; }
 
         public virtual Team DestinationTeam { get; set; }
+
+        public virtual StateMatch StateMatch { get; set; }
 
     }
 }
