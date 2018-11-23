@@ -14,5 +14,9 @@ namespace ST.Domain.Entities
         public string Password { get; set; }
 
         public bool Locked { get; set; }
+
+        //Navigation properties 
+        public virtual Person Person { get; set; }
+
     }
 }

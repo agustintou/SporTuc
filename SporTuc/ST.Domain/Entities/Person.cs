@@ -1,5 +1,6 @@
 ﻿using ST.Domain.Base;
 using ST.Domain.MetaData;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,6 +17,9 @@ namespace ST.Domain.Entities
         public string Email { get; set; }
 
         public string Mobile { get; set; }
+
+        //Navigation properties
+        public ICollection<User> Users { get; set; }
 
     }
 }
