@@ -19,5 +19,7 @@ namespace ST.Domain.Entities
         //Navigation Properties
         public ICollection<Field> Fields { get; set; }
 
+        public ICollection<Ranking> Ratings { get; set; }
+
     }
 }

@@ -22,5 +22,8 @@ namespace ST.Domain.Entities
         public ICollection<User> Users { get; set; }
 
         public ICollection<Team> Teams { get; set; }
+
+        public ICollection<Ranking> Ratings { get; set; }
+
     }
 }

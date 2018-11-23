@@ -46,6 +46,7 @@
     <Compile Include="Match\IMatchRepository.cs" />
     <Compile Include="Person\IPersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ranking\IRankingRepository.cs" />
     <Compile Include="Service\IServiceRepository.cs" />
     <Compile Include="Sport\ISportRepository.cs" />
     <Compile Include="StateMatch\IStateMatchRepository.cs" />

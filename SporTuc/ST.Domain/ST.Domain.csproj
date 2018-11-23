@@ -52,6 +52,7 @@
     <Compile Include="Entities\Field.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Ranking.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\Sport.cs" />
     <Compile Include="Entities\StateMatch.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="MetaData\IField.cs" />
     <Compile Include="MetaData\IMatch.cs" />
     <Compile Include="MetaData\IPerson.cs" />
+    <Compile Include="MetaData\IRanking.cs" />
     <Compile Include="MetaData\IService.cs" />
     <Compile Include="MetaData\ISport.cs" />
     <Compile Include="MetaData\IStateMatch.cs" />
