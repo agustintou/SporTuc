@@ -2,7 +2,6 @@
 using System.Linq;
 using ST.Domain.Repository.Person;
 using ST.Domain.Repository.User;
-using ST.Infrastructure.Repository.Person;
 using ST.IService.Complex.DTOs;
 using ST.IService.User;
 
@@ -22,13 +21,20 @@ namespace ST.Service.User
 
         public void Add(UserDto entity)
         {
+            var person = _personRepository.GetById(entity.PersonId);
 
-            _userRepository.Add(new Domain.Entities.User
+            if(person != null)
             {
-                Locked = false,
-                Password = entity.Password,
-                
-            })
+                _userRepository.Add(new Domain.Entities.User
+                {
+                    Locked = false,
+                    Password = entity.Password,
+                    Person = person,
+                    UserName = entity.UserName
+                });
+
+                _userRepository.Save();
+            }
         }
 
         public void Delete(long entityId)
