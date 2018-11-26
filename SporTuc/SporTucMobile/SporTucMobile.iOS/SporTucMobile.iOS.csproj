@@ -172,4 +172,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_person.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_email_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_phone_white.png" />
+  </ItemGroup>
 </Project>

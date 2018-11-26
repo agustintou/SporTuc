@@ -27,10 +27,10 @@
             Orientation="Horizontal">
             <Image
                 Aspect="Fill"
-                HeightRequest="25"
+                HeightRequest="20"
                 Source="ic_person.png"
                 VerticalOptions="Center"
-                WidthRequest="25"/>
+                WidthRequest="20"/>
             <Label
                 FontAttributes="Bold"
                 HorizontalOptions="FillAndExpand"
@@ -48,10 +48,10 @@
             Orientation="Horizontal">
             <Image
                 Aspect="Fill"
-                HeightRequest="25"
+                HeightRequest="20"
                 Source="ic_lock.png"
                 VerticalOptions="Center"
-                WidthRequest="25"/>
+                WidthRequest="20"/>
             <Label
                 FontAttributes="Bold"
                 HorizontalOptions="FillAndExpand"

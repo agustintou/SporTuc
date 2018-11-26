@@ -9,8 +9,9 @@
             <infra:InstanceLocator x:Key="Locator"/>
 
             <!--COLORES-->
-            <Color x:Key="Titulos">#717171</Color>
+            <Color x:Key="Title">#717171</Color>
             <Color x:Key="Placeholders">#C9C9C9</Color>
+            <Color x:Key="ColorWhite">#FFF</Color>
             
         </ResourceDictionary>
     </Application.Resources>

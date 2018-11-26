@@ -2,17 +2,207 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SporTucMobile.Views.RegisterPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}">
-    <StackLayout
-        BindingContext="{Binding Persons}">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="#074208">
+    <ScrollView>
+        <StackLayout
+        BindingContext="{Binding Persons}"
+        Padding="24">
 
-        <Label
-        Text="Registrar usuario">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer
-                    Command="{Binding CommandToReturn}"/>
-            </Label.GestureRecognizers>
-        </Label>
-        
-    </StackLayout>
+            <!--TITULO-->
+            <Label
+                Font="18"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,0,0,20"
+                Text="Registro de usuario"
+                TextColor="White"/>
+
+            <!--NOMBRE-->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_person.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Nombre"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                Keyboard="Text"
+                Placeholder="Nombre"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding Person.Name, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+            <!--APELLIDO-->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_person.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Apellido"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                Keyboard="Text"
+                Placeholder="Apellido"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding Person.LastName, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+            <!--EMAIL-->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_email_white.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="E-Mail"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                Keyboard="Email"
+                Placeholder="E-Mail"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding Person.Email, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+            <!-- NOMBRE DE USUARIO -->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_person.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Usuario"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                Placeholder="Nombre de Usuario"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding User.NameUser, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+            <!-- CONTRASEÑA -->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_lock.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Contraseña"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                IsPassword="True"
+                Placeholder="Contraseña"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding User.Password, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+            <!-- CONFIRMAR CONTRASEÑA -->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_lock.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Confirmar contraseña"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                IsPassword="True"
+                Placeholder="Confirmar contraseña"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding ConfirmPassword, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+            <!-- CELULAR -->
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    Source="ic_phone_white.png"
+                    VerticalOptions="Center"
+                    WidthRequest="20"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Num. Celular"
+                    TextColor="White"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Entry
+                Keyboard="Telephone"
+                Placeholder="Num. Celular"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding Person.Mobile, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+            
+            <!-- BOTONES -->
+            <!-- REGISTRAR -->
+            <Button
+                BackgroundColor="Green"
+                BorderColor="White"
+                BorderRadius="5"
+                Command="{Binding CommandRegister}"
+                CornerRadius="5"
+                IsEnabled="{Binding IsEnabled}"
+                Margin="0,0,0,5"
+                Text="Registrar"
+                TextColor="{StaticResource ColorWhite}"/>
+            
+            <!-- REGRESAR -->
+            <Label
+                Font="15"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Text="Regresar"
+                TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandToReturn}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
