@@ -17,7 +17,7 @@
         
         <!--TITULO-->
         <Label
-            HorizontalOptions="Center"
+            HorizontalOptions="CenterAndExpand"
             Margin="50,10,50,20"
             Text="Bienvenido a SporTuc, por favor ingrese sus datos."
             TextColor="White"/>
@@ -67,16 +67,31 @@
         <!--INICIAR SESION-->
         <Button
             BackgroundColor="Green"
+            Margin="0,0,0,10"
             Text="Ingresar"
             TextColor="White"/>
         
         <!--OLVIDO DE CONTRASEÑA - REGISTRARSE-->
         <StackLayout
             Orientation="Horizontal">
-            
+
+            <!--REGISTRARSE-->
+            <Label
+                Font="17"
+                FontAttributes="Bold"
+                Text="Registrarme"
+                TextColor="White"
+                TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandRegister}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
             <!--OLVIDO DE CONTRASEÑA-->
             <Label
-                HorizontalOptions="FillAndExpand"
+                Font="15"
+                HorizontalOptions="EndAndExpand"
                 Text="Olvide la contraseña"
                 TextColor="White">
                 <Label.GestureRecognizers>
@@ -84,18 +99,19 @@
                         Command="{Binding CommandForgotPassword}"/>
                 </Label.GestureRecognizers>
             </Label>
-
-            <!--REGISTRARSE-->
-            <Label
-                FontAttributes="Bold"
-                HorizontalOptions="FillAndExpand"
-                Text="Registrarme"
-                TextColor="White">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Command="{Binding CommandRegister}"/>
-                </Label.GestureRecognizers>
-            </Label>
         </StackLayout>
+        
+        <!--REDES SOCIALES-->
+        
+        <!--FACEBOOK-->
+        <Image
+            Aspect="Fill"
+            HeightRequest="80"
+            Source="facebook.png"
+            WidthRequest="80">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer/>
+            </Image.GestureRecognizers>
+        </Image>
     </StackLayout>
 </ContentPage>

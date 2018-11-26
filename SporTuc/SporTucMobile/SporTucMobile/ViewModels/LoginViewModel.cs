@@ -1,4 +1,8 @@
-﻿using System.Windows.Input;
+﻿using GalaSoft.MvvmLight.Command;
+using SporTucMobile.Views;
+using System;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SporTucMobile.ViewModels
 {
@@ -41,7 +45,9 @@ namespace SporTucMobile.ViewModels
         #endregion
 
         #region Properties
+        public ICommand CommandRegister { get { return new RelayCommand(Register); } }
 
+        public ICommand CommandForgotPassword { get { return new RelayCommand<string>(ForgotPassword); } }
         #endregion
 
         #region Builder
@@ -52,7 +58,15 @@ namespace SporTucMobile.ViewModels
         #endregion
 
         #region Command
+        void Register()
+        {
+            Application.Current.MainPage = new RegisterPage();
+        }
 
+        void ForgotPassword(string user)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Methods
