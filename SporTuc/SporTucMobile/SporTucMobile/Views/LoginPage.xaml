@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SporTucMobile.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="#074208">
+    <StackLayout
+        BindingContext="{Binding Login}"
+        Padding="24">
+        
+        <!--LOGO-->
+        <BoxView
+            BackgroundColor="White"
+            HeightRequest="90"
+            HorizontalOptions="Center"
+            WidthRequest="90"/>
+        
+        <!--TITULO-->
+        <Label
+            HorizontalOptions="Center"
+            Margin="50,10,50,20"
+            Text="Bienvenido a SporTuc, por favor ingrese sus datos."
+            TextColor="White"/>
+        
+        <!--USUARIO-->
+        <StackLayout
+            Orientation="Horizontal">
+            <Image
+                Aspect="Fill"
+                HeightRequest="25"
+                Source="ic_person.png"
+                VerticalOptions="Center"
+                WidthRequest="25"/>
+            <Label
+                FontAttributes="Bold"
+                HorizontalOptions="FillAndExpand"
+                Text="Usuario"
+                TextColor="White"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        <Entry
+            Placeholder="Nombre de usuario"
+            PlaceholderColor="{StaticResource Placeholders}"
+            Text="{Binding NameUser, Mode=TwoWay}"/>
+
+        <!--CONTRASEÑA-->
+        <StackLayout
+            Orientation="Horizontal">
+            <Image
+                Aspect="Fill"
+                HeightRequest="25"
+                Source="ic_lock.png"
+                VerticalOptions="Center"
+                WidthRequest="25"/>
+            <Label
+                FontAttributes="Bold"
+                HorizontalOptions="FillAndExpand"
+                Text="Contraseña"
+                TextColor="White"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        <Entry
+            Placeholder="Contraseña"
+            PlaceholderColor="{StaticResource Placeholders}"
+            Text="{Binding Password, Mode=TwoWay}"/>
+        
+        <!--INICIAR SESION-->
+        <Button
+            BackgroundColor="Green"
+            Text="Ingresar"
+            TextColor="White"/>
+        
+        <!--OLVIDO DE CONTRASEÑA - REGISTRARSE-->
+        <StackLayout
+            Orientation="Horizontal">
+            
+            <!--OLVIDO DE CONTRASEÑA-->
+            <Label
+                HorizontalOptions="FillAndExpand"
+                Text="Olvide la contraseña"
+                TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandForgotPassword}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!--REGISTRARSE-->
+            <Label
+                FontAttributes="Bold"
+                HorizontalOptions="FillAndExpand"
+                Text="Registrarme"
+                TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandRegister}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
