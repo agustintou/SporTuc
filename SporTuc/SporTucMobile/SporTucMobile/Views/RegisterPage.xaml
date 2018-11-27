@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SporTucMobile.Design" 
+             BackgroundColor="#2f4259"
              x:Class="SporTucMobile.Views.RegisterPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundColor="#074208">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ScrollView>
         <StackLayout
         BindingContext="{Binding Persons}"
@@ -19,142 +20,84 @@
                 TextColor="White"/>
 
             <!--NOMBRE-->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_person.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="Nombre"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
+            <local:MyEntry
+                Image="ic_person"
                 Keyboard="Text"
                 Placeholder="Nombre"
                 PlaceholderColor="{StaticResource Placeholders}"
+                HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.Name, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
+                TextColor="White">
+            </local:MyEntry>
 
             <!--APELLIDO-->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_person.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="Apellido"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
+            <local:MyEntry
+                Image="ic_person"
                 Keyboard="Text"
                 Placeholder="Apellido"
                 PlaceholderColor="{StaticResource Placeholders}"
+                HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.LastName, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
+                TextColor="White">
+            </local:MyEntry>
 
             <!--EMAIL-->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_email_white.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="E-Mail"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
+            <local:MyEntry
+                Image="ic_email_white"
                 Keyboard="Email"
-                Placeholder="E-Mail"
+                Placeholder="Email"
                 PlaceholderColor="{StaticResource Placeholders}"
+                HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.Email, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
+                TextColor="White">
+            </local:MyEntry>
 
             <!-- NOMBRE DE USUARIO -->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_person.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="Usuario"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
-                Placeholder="Nombre de Usuario"
+            <local:MyEntry
+                Image="ic_person"
+                Keyboard="Text"
+                Placeholder="Nombre de usuario"
                 PlaceholderColor="{StaticResource Placeholders}"
-                Text="{Binding User.NameUser, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding User.UserName, Mode=TwoWay}"
+                TextColor="White">
+            </local:MyEntry>
 
             <!-- CONTRASEÑA -->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_lock.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="Contraseña"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
+            <local:MyEntry
+                Image="ic_lock"
                 IsPassword="True"
+                Keyboard="Text"
                 Placeholder="Contraseña"
                 PlaceholderColor="{StaticResource Placeholders}"
+                HorizontalOptions="FillAndExpand"
                 Text="{Binding User.Password, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
+                TextColor="White">
+            </local:MyEntry>
 
-            <!-- CELULAR -->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_phone_white.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="Num. Celular"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
-                Keyboard="Telephone"
-                Placeholder="Num. Celular"
+            <!-- CONFIRMAR CONTRASEÑA -->
+            <local:MyEntry
+                Image="ic_lock"
+                IsPassword="True"
+                Keyboard="Text"
+                Placeholder="Confirmar contraseña"
                 PlaceholderColor="{StaticResource Placeholders}"
-                Text="{Binding Person.Mobile, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
-            
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding User.Password, Mode=TwoWay}"
+                TextColor="White">
+            </local:MyEntry>
+
+            <!--CELULAR--> 
+            <local:MyEntry
+                Image="ic_phone_white"
+                Keyboard="Numeric"
+                Placeholder="Celular"
+                PlaceholderColor="{StaticResource Placeholders}"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Person.NumMobile, Mode=TwoWay}"
+                TextColor="White">
+            </local:MyEntry>
+
             <!-- BOTONES -->
             <!-- REGISTRAR -->
             <Button

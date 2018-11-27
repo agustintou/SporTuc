@@ -21,8 +21,8 @@ namespace SporTucMobile
         {
             InitializeComponent();
 
-            dataService = new DataService();
-            LoadParameters();
+            //dataService = new DataService();
+            //LoadParameters();
             MainPage = new NavigationPage(new LoginPage());
         }
 
