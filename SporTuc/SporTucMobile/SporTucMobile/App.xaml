@@ -5,10 +5,13 @@
              x:Class="SporTucMobile.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!--LOCATOR-->
+            <!-- LOCATOR -->
             <infra:InstanceLocator x:Key="Locator"/>
-
-            <!--COLORES-->
+            
+            <!-- PARAMETER -->
+            <x:String x:Key="URLBase">http://soccerapi.azurewebsites.net</x:String>
+            
+            <!-- COLORES -->
             <Color x:Key="Title">#717171</Color>
             <Color x:Key="Placeholders">#C9C9C9</Color>
             <Color x:Key="ColorWhite">#FFF</Color>

@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using SporTucMobile.Models;
 using SporTucMobile.Views;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -45,24 +46,6 @@ namespace SporTucMobile.ViewModels
             }
         }
 
-        private string _confirmPassword { get; set; }
-        public string ConfirmPassword
-        {
-            get
-            {
-                return this._confirmPassword;
-            }
-            set
-            {
-                if (value != _confirmPassword)
-                {
-                    _confirmPassword = value;
-                    _isEnabled = CheckData();
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private bool _isEnabled { get; set; }
         public bool IsEnabled
         {
@@ -83,6 +66,8 @@ namespace SporTucMobile.ViewModels
 
         #region Properties
         public ICommand CommandToReturn { get { return new RelayCommand(ToReturn); } }
+
+        public ICommand CommandRegister { get { return new RelayCommand(Register); } }
         #endregion
 
         #region Builder
@@ -97,6 +82,11 @@ namespace SporTucMobile.ViewModels
         {
             Application.Current.MainPage = new LoginPage();
         }
+
+        private void Register()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Methods
@@ -107,15 +97,15 @@ namespace SporTucMobile.ViewModels
 
         bool CheckData()
         {
-            //if (!string.IsNullOrEmpty(Person.Name)
-            //    && !string.IsNullOrEmpty(_person.LastName)
-            //    && !string.IsNullOrEmpty(_person.Email)
-            //    && !string.IsNullOrEmpty(_person.NumMobile)
-            //    && !string.IsNullOrEmpty(_user.UserName)
-            //    && !string.IsNullOrEmpty(_user.Password))
-            //    return true;
+            if (!string.IsNullOrWhiteSpace(_person.Name)
+                && string.IsNullOrWhiteSpace(_person.LastName)
+                && !string.IsNullOrWhiteSpace(_person.Email)
+                && !string.IsNullOrWhiteSpace(_person.NumMobile)
+                && !string.IsNullOrWhiteSpace(_user.UserName)
+                && !string.IsNullOrWhiteSpace(_user.Password))
+                return true;
 
-            //return false;
+            return false;
         }
         #endregion
     }

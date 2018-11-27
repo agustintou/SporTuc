@@ -132,29 +132,6 @@
                 Text="{Binding User.Password, Mode=TwoWay}"
                 TextColor="{StaticResource ColorWhite}"/>
 
-            <!-- CONFIRMAR CONTRASEÑA -->
-            <StackLayout
-                Orientation="Horizontal">
-                <Image
-                    Aspect="Fill"
-                    HeightRequest="20"
-                    Source="ic_lock.png"
-                    VerticalOptions="Center"
-                    WidthRequest="20"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="FillAndExpand"
-                    Text="Confirmar contraseña"
-                    TextColor="White"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Entry
-                IsPassword="True"
-                Placeholder="Confirmar contraseña"
-                PlaceholderColor="{StaticResource Placeholders}"
-                Text="{Binding ConfirmPassword, Mode=TwoWay}"
-                TextColor="{StaticResource ColorWhite}"/>
-
             <!-- CELULAR -->
             <StackLayout
                 Orientation="Horizontal">
