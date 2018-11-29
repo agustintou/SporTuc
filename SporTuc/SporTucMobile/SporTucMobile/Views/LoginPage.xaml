@@ -1,117 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SporTucMobile.Design"
              x:Class="SporTucMobile.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundColor="#074208">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImage="pruebafondo3.png">
     <StackLayout
         BindingContext="{Binding Login}"
         Padding="24">
-        
-        <!--LOGO-->
+
+        <!-- LOGO -->
         <BoxView
             BackgroundColor="White"
             HeightRequest="90"
             HorizontalOptions="Center"
+            Margin="0,40,0,0"
             WidthRequest="90"/>
         
-        <!--TITULO-->
+        <!-- TITULOS -->
         <Label
+            Font="18"
+            FontAttributes="Bold"
             HorizontalOptions="CenterAndExpand"
-            Margin="50,10,50,20"
-            Text="Bienvenido a SporTuc, por favor ingrese sus datos."
-            TextColor="White"/>
-        
-        <!--USUARIO-->
-        <StackLayout
-            Orientation="Horizontal">
-            <Image
-                Aspect="Fill"
-                HeightRequest="20"
-                Source="ic_person.png"
-                VerticalOptions="Center"
-                WidthRequest="20"/>
-            <Label
-                FontAttributes="Bold"
-                HorizontalOptions="FillAndExpand"
-                Text="Usuario"
-                TextColor="White"
-                VerticalOptions="Center"/>
-        </StackLayout>
-        <Entry
+            Text="Bienvenido a SporTuc!"
+            TextColor="{StaticResource Primary}"/>
+        <Label
+            Font="18"
+            HorizontalOptions="CenterAndExpand"
+            Margin="0,0,0,20"
+            Text="Ingrese sus datos"
+            TextColor="{StaticResource Primary}"/>
+
+        <!-- NOMBRE DE USUARIO -->
+        <local:MyEntry
+            Image="ic_person"
+            Keyboard="Text"
+            HorizontalOptions="FillAndExpand"
             Placeholder="Nombre de usuario"
-            PlaceholderColor="{StaticResource Placeholders}"
-            Text="{Binding NameUser, Mode=TwoWay}"/>
+            PlaceholderColor="{StaticResource ColorWhite}"
+            TextColor="{StaticResource Primary}"/>
 
-        <!--CONTRASEÑA-->
+        <!-- CONTRASEÑA -->
+        <local:MyEntry
+            Image="ic_lock"
+            IsPassword="True"
+            Keyboard="Text"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Contraseña"
+            PlaceholderColor="{StaticResource ColorWhite}"
+            TextColor="{StaticResource Primary}"/>
+        
+        <!-- INICIAR SESION -->
+        <Button
+            BackgroundColor="{StaticResource ColorWhite}"
+            BorderColor="{StaticResource Primary}"
+            BorderRadius="20"
+            CornerRadius="20"
+            Margin="0,10,0,10"
+            Text="Iniciar Sesión"
+            TextColor="{StaticResource Primary}"/>
+        
+        <!-- REGISTRARSE -->
+        <Label
+            Font="16"
+            FontAttributes="Bold"
+            HorizontalOptions="CenterAndExpand"
+            Text="Registrarse"
+            TextColor="{StaticResource ColorWhite}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding CommandRegister}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <!-- OLVIDO LA CONTRASEÑA? -->
+        <Label
+            Font="16"
+            HorizontalOptions="CenterAndExpand"
+            Text="Olvido su contraseña?"
+            TextColor="{StaticResource ColorWhite}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding CommandForgotPassword}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- REDES SOCIALES -->
         <StackLayout
-            Orientation="Horizontal">
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal"
+            VerticalOptions="EndAndExpand">
+            
+            <!-- FACEBOOK -->
             <Image
                 Aspect="Fill"
-                HeightRequest="20"
-                Source="ic_lock.png"
-                VerticalOptions="Center"
-                WidthRequest="20"/>
-            <Label
-                FontAttributes="Bold"
-                HorizontalOptions="FillAndExpand"
-                Text="Contraseña"
-                TextColor="White"
-                VerticalOptions="Center"/>
-        </StackLayout>
-        <Entry
-            Placeholder="Contraseña"
-            PlaceholderColor="{StaticResource Placeholders}"
-            Text="{Binding Password, Mode=TwoWay}"/>
-        
-        <!--INICIAR SESION-->
-        <Button
-            BackgroundColor="Green"
-            Margin="0,0,0,10"
-            Text="Ingresar"
-            TextColor="White"/>
-        
-        <!--OLVIDO DE CONTRASEÑA - REGISTRARSE-->
-        <StackLayout
-            Orientation="Horizontal">
-
-            <!--REGISTRARSE-->
-            <Label
-                Font="17"
-                FontAttributes="Bold"
-                Text="Registrarme"
-                TextColor="White"
-                TextDecorations="Underline">
-                <Label.GestureRecognizers>
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                Source="facebook.png"
+                WidthRequest="60">
+                <Image.GestureRecognizers>
                     <TapGestureRecognizer
-                        Command="{Binding CommandRegister}"/>
-                </Label.GestureRecognizers>
-            </Label>
-
-            <!--OLVIDO DE CONTRASEÑA-->
-            <Label
-                Font="15"
-                HorizontalOptions="EndAndExpand"
-                Text="Olvide la contraseña"
-                TextColor="White">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Command="{Binding CommandForgotPassword}"/>
-                </Label.GestureRecognizers>
-            </Label>
+                        Command="{Binding CommandFacebook}"/>
+                </Image.GestureRecognizers>
+            </Image>
         </StackLayout>
-        
-        <!--REDES SOCIALES-->
-        
-        <!--FACEBOOK-->
-        <Image
-            Aspect="Fill"
-            HeightRequest="80"
-            Source="facebook.png"
-            WidthRequest="80">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer/>
-            </Image.GestureRecognizers>
-        </Image>
     </StackLayout>
 </ContentPage>

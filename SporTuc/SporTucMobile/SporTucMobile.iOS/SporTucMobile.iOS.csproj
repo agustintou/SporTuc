@@ -186,4 +186,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_phone_white.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pruebafondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\facebooklogo.png" />
+  </ItemGroup>
 </Project>

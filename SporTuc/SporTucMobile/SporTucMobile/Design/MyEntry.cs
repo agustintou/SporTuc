@@ -12,7 +12,7 @@ namespace SporTucMobile.Design
             BindableProperty.Create(nameof(Image), typeof(string), typeof(MyEntry), string.Empty);
 
         public static readonly BindableProperty LineColorProperty =
-            BindableProperty.Create(nameof(LineColor), typeof(Xamarin.Forms.Color), typeof(MyEntry), Color.White);
+            BindableProperty.Create(nameof(LineColor), typeof(Xamarin.Forms.Color), typeof(MyEntry), Color.Maroon);
 
         public static readonly BindableProperty ImageHeightProperty =
             BindableProperty.Create(nameof(ImageHeight), typeof(int), typeof(MyEntry), 40);

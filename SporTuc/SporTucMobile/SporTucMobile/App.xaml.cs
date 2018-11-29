@@ -1,7 +1,7 @@
-﻿using System;
-using SporTucMobile.Models;
-using SporTucMobile.Services;
+﻿using SporTucMobile.Data.Person;
+using SporTucMobile.Interfaces;
 using SporTucMobile.Views;
+using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +11,8 @@ namespace SporTucMobile
     public partial class App : Application
     {
         #region Attributes
-        private DataService dataService;
+        static SQLiteAsyncConnection sqlConnection;
+        
 
         #endregion
         public static int ScreenWidth;
@@ -21,9 +22,22 @@ namespace SporTucMobile
         {
             InitializeComponent();
 
-            //dataService = new DataService();
-            //LoadParameters();
+            //Connection = DependencyService.Get<IConfig>().GetConnection();
+
             MainPage = new NavigationPage(new LoginPage());
+        }
+        
+        public static SQLiteAsyncConnection SqlConnection
+        {
+            get
+            {
+                if(sqlConnection == null)
+                {
+                    sqlConnection = DependencyService.Get<IConfig>().GetConnection();
+                }
+
+                return sqlConnection;
+            }
         }
 
         #region Methods
@@ -40,28 +54,6 @@ namespace SporTucMobile
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }
-
-
-        private void LoadParameters()
-        {
-            var urlBase = Application.Current.Resources["URLBase"].ToString();
-            var parameter = dataService.First<Parameter>(false);
-
-            if(parameter == null)
-            {
-                parameter = new Parameter
-                {
-                    URLBase = urlBase
-                };
-
-                dataService.Insert(parameter);
-            }
-            else
-            {
-                parameter.URLBase = urlBase;
-                dataService.Update(parameter);
-            }
         }
         #endregion
     }

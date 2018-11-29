@@ -6,13 +6,8 @@ using System.Collections.Generic;
 namespace SporTucMobile.Models
 {
     [Table("Persons")]
-    public class Person
+    public class Person : EntityBase
     {
-        [PrimaryKey, AutoIncrement]
-        public long Id { get; set; }
-
-        public byte[] RowVersion { get; set; }
-
         public string Name { get; set; }
 
         public string LastName { get; set; }
@@ -21,13 +16,8 @@ namespace SporTucMobile.Models
 
         public string NumMobile { get; set; }
 
-        public override int GetHashCode()
-        {
-            return (int)Id;
-        }
-
         //Navigation Properties
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead)]
         public List<User> Users { get; set; }
     }
 }

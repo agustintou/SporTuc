@@ -1,11 +1,9 @@
-﻿using SQLite.Net.Interop;
+﻿using SQLite;
 
 namespace SporTucMobile.Interfaces
 {
     public interface IConfig
     {
-        string DirectoryDB { get; }
-
-        ISQLitePlatform Platform { get; }
+        SQLiteAsyncConnection GetConnection();
     }
 }

@@ -4,125 +4,128 @@
              xmlns:local="clr-namespace:SporTucMobile.Design" 
              BackgroundColor="#2f4259"
              x:Class="SporTucMobile.Views.RegisterPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImage="pruebafondo3.png">
     <ScrollView>
         <StackLayout
-        BindingContext="{Binding Persons}"
-        Padding="24">
+            BindingContext="{Binding Persons}"
+            Padding="24">
 
-            <!--TITULO-->
+            <!-- TITLE -->
             <Label
                 Font="18"
                 FontAttributes="Bold"
                 HorizontalOptions="CenterAndExpand"
-                Margin="0,0,0,20"
+                Margin="0,0,0,10"
                 Text="Registro de usuario"
-                TextColor="White"/>
+                TextColor="{StaticResource Primary}"/>
 
-            <!--NOMBRE-->
+            <!-- NAME -->
             <local:MyEntry
                 Image="ic_person"
+                IsEnabled="{Binding EntryIsEnabled}"
                 Keyboard="Text"
                 Placeholder="Nombre"
                 PlaceholderColor="{StaticResource Placeholders}"
                 HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.Name, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
+                TextColor="{StaticResource Primary}"/>
 
-            <!--APELLIDO-->
+            <!-- LAST NAME -->
             <local:MyEntry
                 Image="ic_person"
+                IsEnabled="{Binding EntryIsEnabled}"
                 Keyboard="Text"
                 Placeholder="Apellido"
                 PlaceholderColor="{StaticResource Placeholders}"
                 HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.LastName, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
+                TextColor="{StaticResource Primary}"/>
 
-            <!--EMAIL-->
+            <!-- EMAIL -->
             <local:MyEntry
                 Image="ic_email_white"
+                IsEnabled="{Binding EntryIsEnabled}"
                 Keyboard="Email"
                 Placeholder="Email"
                 PlaceholderColor="{StaticResource Placeholders}"
                 HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.Email, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
+                TextColor="{StaticResource Primary}"/>
 
-            <!-- NOMBRE DE USUARIO -->
+            <!-- NUM. MOBILE -->
+            <local:MyEntry
+                Image="ic_phone_white"
+                IsEnabled="{Binding EntryIsEnabled}"
+                Keyboard="Numeric"
+                Placeholder="Celular"
+                PlaceholderColor="{StaticResource Placeholders}"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Person.NumMobile, Mode=TwoWay}"
+                TextColor="{StaticResource Primary}"/>
+
+            <!-- USER NAME -->
             <local:MyEntry
                 Image="ic_person"
+                IsEnabled="{Binding EntryIsEnabled}"
                 Keyboard="Text"
                 Placeholder="Nombre de usuario"
                 PlaceholderColor="{StaticResource Placeholders}"
                 HorizontalOptions="FillAndExpand"
                 Text="{Binding User.UserName, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
+                TextColor="{StaticResource Primary}"/>
 
-            <!-- CONTRASEÑA -->
+            <!-- PASSWORD -->
             <local:MyEntry
                 Image="ic_lock"
+                IsEnabled="{Binding EntryIsEnabled}"
                 IsPassword="True"
                 Keyboard="Text"
                 Placeholder="Contraseña"
                 PlaceholderColor="{StaticResource Placeholders}"
                 HorizontalOptions="FillAndExpand"
                 Text="{Binding User.Password, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
+                TextColor="{StaticResource Primary}"/>
 
-            <!-- CONFIRMAR CONTRASEÑA -->
+            <!-- CONFIRM PASSWORD -->
             <local:MyEntry
                 Image="ic_lock"
+                IsEnabled="{Binding EntryIsEnabled}"
                 IsPassword="True"
                 Keyboard="Text"
                 Placeholder="Confirmar contraseña"
                 PlaceholderColor="{StaticResource Placeholders}"
                 HorizontalOptions="FillAndExpand"
-                Text="{Binding User.Password, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
+                Text="{Binding ConfirmPassword, Mode=TwoWay}"
+                TextColor="{StaticResource Primary}"/>
+            
+            <!-- LOADING -->
+            <ActivityIndicator
+                IsRunning="{Binding LoadingIsRunning}"
+                IsVisible="{Binding LoadingIsVisible}"/>
 
-            <!--CELULAR--> 
-            <local:MyEntry
-                Image="ic_phone_white"
-                Keyboard="Numeric"
-                Placeholder="Celular"
-                PlaceholderColor="{StaticResource Placeholders}"
-                HorizontalOptions="FillAndExpand"
-                Text="{Binding Person.NumMobile, Mode=TwoWay}"
-                TextColor="White">
-            </local:MyEntry>
-
-            <!-- BOTONES -->
-            <!-- REGISTRAR -->
+            <!-- CREAR CUENTA -->
             <Button
-                BackgroundColor="Green"
-                BorderColor="White"
-                BorderRadius="5"
-                Command="{Binding CommandRegister}"
-                CornerRadius="5"
-                IsEnabled="{Binding IsEnabled}"
-                Margin="0,0,0,5"
-                Text="Registrar"
-                TextColor="{StaticResource ColorWhite}"/>
+                BackgroundColor="{StaticResource ColorWhite}"
+                BorderColor="{StaticResource Primary}"
+                BorderRadius="20"
+                CornerRadius="20"
+                Margin="0,20,0,0"
+                Text="Crear cuenta"
+                TextColor="{StaticResource Primary}"/>
             
             <!-- REGRESAR -->
             <Label
-                Font="15"
-                FontAttributes="Bold"
                 HorizontalOptions="CenterAndExpand"
                 Text="Regresar"
-                TextColor="White">
+                TextColor="{StaticResource ColorWhite}"
+                VerticalOptions="EndAndExpand">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer
                         Command="{Binding CommandToReturn}"/>
                 </Label.GestureRecognizers>
             </Label>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

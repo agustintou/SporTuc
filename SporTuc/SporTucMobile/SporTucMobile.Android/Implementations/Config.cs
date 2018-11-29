@@ -1,39 +1,23 @@
 ﻿using SporTucMobile.Droid.Implementations;
 using SporTucMobile.Interfaces;
-using SQLite.Net.Interop;
+using SQLite;
+using System;
+using System.IO;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Config))]
 namespace SporTucMobile.Droid.Implementations
 {
     public class Config : IConfig
     {
-        private string _directoryDB { get; set; }
-        public string DirectoryDB
+        public SQLiteAsyncConnection GetConnection()
         {
-            get
-            {
-                if (string.IsNullOrEmpty(_directoryDB))
-                {
-                    _directoryDB = System.Environment.GetFolderPath(
-                        System.Environment.SpecialFolder.Personal);
-                }
+            var sqlDbFileName = "SporTuc2018.db3";
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var path = System.IO.Path.Combine(documentsPath, sqlDbFileName);
 
-                return _directoryDB;
-            }
-        }
+            var connection = new SQLiteAsyncConnection(path);
 
-        private ISQLitePlatform _platform { get; set; }
-        public ISQLitePlatform Platform
-        {
-            get
-            {
-                if(_platform == null)
-                {
-                    _platform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
-                }
-
-                return _platform;
-            }
+            return connection;
         }
     }
 }

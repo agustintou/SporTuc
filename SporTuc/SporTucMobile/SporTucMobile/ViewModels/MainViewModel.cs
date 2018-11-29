@@ -1,4 +1,8 @@
-﻿namespace SporTucMobile.ViewModels
+﻿using SporTucMobile.Interfaces;
+using SQLite;
+using Xamarin.Forms;
+
+namespace SporTucMobile.ViewModels
 {
     public class MainViewModel
     {
@@ -6,13 +10,13 @@
         public LoginViewModel Login { get; set; }
 
         public PersonViewModel Persons { get; set; }
+
+        //public SQLiteAsyncConnection Connection { get; set; }
         #endregion
 
         #region Builder
         public MainViewModel()
         {
-            //App.ScreenHeight = (int)Application.Current.MainPage.Height;
-            //App.ScreenWidth = (int)Application.Current.MainPage.Width;
             Login = new LoginViewModel();
             Persons = new PersonViewModel();
         }
