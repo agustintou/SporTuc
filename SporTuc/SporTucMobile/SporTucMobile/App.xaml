@@ -14,6 +14,7 @@
             <!-- COLORES -->
             <Color x:Key="Title">#747474</Color>
             <Color x:Key="Placeholders">#FFF</Color>
+            <Color x:Key="Information">#717171</Color>
             <Color x:Key="ColorWhite">#FFF</Color>
             <Color x:Key="Primary">Maroon</Color>
             <Color x:Key="Secundary">#109648</Color>

@@ -5,7 +5,7 @@
              x:Class="SporTucMobile.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImage="pruebafondo3.png">
+             BackgroundImage="FondoAplicacion.png">
     <StackLayout
         BindingContext="{Binding Login}"
         Padding="24">
@@ -39,6 +39,7 @@
             HorizontalOptions="FillAndExpand"
             Placeholder="Nombre de usuario"
             PlaceholderColor="{StaticResource ColorWhite}"
+            Text="{Binding User.UserName}"
             TextColor="{StaticResource Primary}"/>
 
         <!-- CONTRASEÑA -->
@@ -49,6 +50,7 @@
             HorizontalOptions="FillAndExpand"
             Placeholder="Contraseña"
             PlaceholderColor="{StaticResource ColorWhite}"
+            Text="{Binding User.Password}"
             TextColor="{StaticResource Primary}"/>
         
         <!-- INICIAR SESION -->
@@ -56,6 +58,7 @@
             BackgroundColor="{StaticResource ColorWhite}"
             BorderColor="{StaticResource Primary}"
             BorderRadius="20"
+            Command="{Binding CommandLogin}"
             CornerRadius="20"
             Margin="0,10,0,10"
             Text="Iniciar Sesión"

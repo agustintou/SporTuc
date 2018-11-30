@@ -1,4 +1,5 @@
 ﻿using SporTucMobile.Interfaces;
+using SporTucMobile.Views;
 using SQLite;
 using Xamarin.Forms;
 
@@ -9,16 +10,15 @@ namespace SporTucMobile.ViewModels
         #region Properties
         public LoginViewModel Login { get; set; }
 
-        public PersonViewModel Persons { get; set; }
+        public RegisterViewModel RegisterVM { get; set; }
 
-        //public SQLiteAsyncConnection Connection { get; set; }
         #endregion
 
         #region Builder
         public MainViewModel()
         {
             Login = new LoginViewModel();
-            Persons = new PersonViewModel();
+            RegisterVM = new RegisterViewModel();
         }
         #endregion
     }

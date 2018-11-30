@@ -5,10 +5,10 @@
              BackgroundColor="#2f4259"
              x:Class="SporTucMobile.Views.RegisterPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImage="pruebafondo3.png">
+             BackgroundImage="FondoAplicacion.png">
     <ScrollView>
         <StackLayout
-            BindingContext="{Binding Persons}"
+            BindingContext="{Binding RegisterVM}"
             Padding="24">
 
             <!-- TITLE -->
@@ -25,9 +25,9 @@
                 Image="ic_person"
                 IsEnabled="{Binding EntryIsEnabled}"
                 Keyboard="Text"
+                HorizontalOptions="FillAndExpand"
                 Placeholder="Nombre"
                 PlaceholderColor="{StaticResource Placeholders}"
-                HorizontalOptions="FillAndExpand"
                 Text="{Binding Person.Name, Mode=TwoWay}"
                 TextColor="{StaticResource Primary}"/>
 
@@ -109,6 +109,7 @@
                 BackgroundColor="{StaticResource ColorWhite}"
                 BorderColor="{StaticResource Primary}"
                 BorderRadius="20"
+                Command="{Binding CommandRegister}"
                 CornerRadius="20"
                 Margin="0,20,0,0"
                 Text="Crear cuenta"

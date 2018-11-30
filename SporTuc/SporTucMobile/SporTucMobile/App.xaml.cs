@@ -1,5 +1,6 @@
 ﻿using SporTucMobile.Data.Person;
 using SporTucMobile.Interfaces;
+using SporTucMobile.Services;
 using SporTucMobile.Views;
 using SQLite;
 using Xamarin.Forms;
@@ -11,18 +12,17 @@ namespace SporTucMobile
     public partial class App : Application
     {
         #region Attributes
-        static SQLiteAsyncConnection sqlConnection;
-        
-
+        static SQLiteAsyncConnection sqlConnection;       
         #endregion
+
         public static int ScreenWidth;
         public static int ScreenHeight;
 
         public App()
         {
-            InitializeComponent();
+            DependencyService.Register<IMessage, MessageService>();
 
-            //Connection = DependencyService.Get<IConfig>().GetConnection();
+            InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
         }

@@ -26,7 +26,7 @@ namespace SporTucMobile.iOS
 
             App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
             App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
-
+            Rg.Plugins.Popup.Popup.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

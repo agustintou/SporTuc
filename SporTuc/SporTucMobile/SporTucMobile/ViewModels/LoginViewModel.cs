@@ -1,4 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Rg.Plugins.Popup.Services;
+using SporTucMobile.Interfaces;
+using SporTucMobile.Models;
 using SporTucMobile.Views;
 using System;
 using System.Windows.Input;
@@ -9,35 +12,18 @@ namespace SporTucMobile.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         #region attributes
-        private string _nameUser { get; set; }
-        public string NameUser
+        public User _user { get; set; }
+        public User User
         {
             get
             {
-                return this._nameUser;
+                return this._user;
             }
             set
             {
-                if(value != _nameUser)
+                if (value != _user)
                 {
-                    _nameUser = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string _password { get; set; }
-        public string Password
-        {
-            get
-            {
-                return this._password;
-            }
-            set
-            {
-                if (value != _password)
-                {
-                    _password = value;
+                    _user = value;
                     OnPropertyChanged();
                 }
             }
@@ -47,12 +33,19 @@ namespace SporTucMobile.ViewModels
         #region Properties
         public ICommand CommandRegister { get { return new RelayCommand(Register); } }
 
-        public ICommand CommandForgotPassword { get { return new RelayCommand<string>(ForgotPassword); } }
+        public ICommand CommandForgotPassword { get { return new RelayCommand(ForgotPassword); } }
+
+        public ICommand CommandLogin { get { return new RelayCommand(Login); } }
+
+        public ForgotPasswordViewModel ForgotPasswordVM { get; set; }
+
+        private readonly IMessage _message;
         #endregion
 
         #region Builder
         public LoginViewModel()
         {
+            _message = DependencyService.Get<IMessage>();
             InitialData();
         }
         #endregion
@@ -63,17 +56,74 @@ namespace SporTucMobile.ViewModels
             Application.Current.MainPage = new RegisterPage();
         }
 
-        void ForgotPassword(string user)
+        async void ForgotPassword()
         {
-            throw new NotImplementedException();
+            if(ForgotPasswordVM == null)
+            {
+                ForgotPasswordVM = new ForgotPasswordViewModel();
+            }
+
+            await PopupNavigation.Instance.PushAsync(new ForgotPasswordPage());
+        }
+
+        async void Login()
+        {
+            try
+            {
+                CheckData();
+
+                if(_user.UserName == "admin"
+                    && _user.Password == "123")
+                {
+                    ToAccess();
+                }
+                else
+                {
+                    CheckNowUser();
+
+                    ToAccess();
+                }
+            }
+            catch (Exception ex)
+            {
+                await this._message.MessageShowAsync("Mensaje", ex.Message);
+            }
         }
         #endregion
 
         #region Methods
         private void InitialData()
         {
-            _nameUser = string.Empty;
-            _password = string.Empty;
+            User = new User();
+        }
+
+        void CheckData()
+        {
+            if(string.IsNullOrWhiteSpace(_user.UserName))
+            {
+                throw new Exception("El nombre de usuario no puede estar vacio.");
+            }
+            else if(string.IsNullOrWhiteSpace(_user.Password))
+            {
+                throw new Exception("La contraseña no puede estar vacia.");
+            }
+        }
+
+        async void CheckNowUser()
+        {
+            var user = await App.SqlConnection.GetAsync<User>(x => x.UserName == _user.UserName && x.Password == _user.Password);
+
+            if(user == null)
+            {
+                User.Password = string.Empty;
+                User.UserName = string.Empty;
+                throw new Exception("El usuario y contraseña no coinciden. Intente de nuevo");
+            }
+        }
+
+        void ToAccess()
+        {
+            App.Current.MainPage = new MainPage();
         }
         #endregion
     }

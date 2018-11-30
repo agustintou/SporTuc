@@ -25,6 +25,8 @@ namespace SporTucMobile.Droid
             App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
             App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
 
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
             LoadApplication(new App());
         }
     }
